@@ -15,7 +15,10 @@ public class ArraysPart {
         //tda.accessCell(0, 0);
         //System.out.println(Arrays.deepToString(tda.arr));
         //tda.traverse2DArray();
+        //tda.searchingValue(20);
 
-        tda.searchingValue(20);
+        System.out.println(Arrays.deepToString(tda.arr));
+        tda.deleteValueFromArray(0, 0);
+        System.out.println(Arrays.deepToString(tda.arr));
     }
 }
