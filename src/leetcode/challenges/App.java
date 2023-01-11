@@ -63,6 +63,7 @@ public class App {
         if (matrix.length == 0 || matrix.length != matrix[0].length) {
             return false;
         }
+
         int n = matrix.length;
         for (int layer = 0; layer < n / 2; layer++) {
             int first = layer;
@@ -80,10 +81,69 @@ public class App {
     }
 
 
-    public static void main(String[] args) {
-        App app = new App();
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};//output
+    public static int sumDiagonal(int a[][]) {
+        int sumOfDiagonal = 0;
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a.length; j++) {
+                if (j == 1) {
+                    sumOfDiagonal += a[i][j];
+                }
+            }
+        }
+        return sumOfDiagonal;
+    }
 
-        System.out.println(Arrays.deepToString(matrix));
+    public static int sumDiagonal2(int[][] a) {
+        int sum = 0;
+        for (int i = 0; i < a.length; i++) {
+            sum += a[i][i];
+        }
+        return sum;
+    }
+
+    private static int removeDuplicates(int a[], int n) {
+        if (n == 0 || n == 1) {
+            return n;
+        }
+        int j = 0;
+        for (int i = 0; i < n - 1; i++) {
+            if (a[i] != a[i + 1]) {
+                a[j++] = a[i];
+            }
+        }
+        a[j++] = a[n - 1];
+        return j;
+    }
+
+
+    public static int[] removeDuplicates(int[] arr) {
+        int result = removeDuplicates(arr, arr.length);
+        int[] newArray = new int[result];
+        for (int i = 0; i < result; i++) {
+            newArray[i] = arr[i];
+        }
+        return newArray;
+    }
+
+    public static String pairSum(int myArray[], int sum) {
+        String pairs = "";
+        for (int i = 0; i < myArray.length; i++) {
+            for (int j = i + 1; j < myArray.length; j++) {
+                if (myArray[i] + myArray[j] == sum) {
+                    pairs += myArray[i] + ":" + myArray[j] + " ";
+                    System.out.println(myArray[i] + " + " + myArray[j] + " = " + sum);
+                }
+            }
+        }
+        return pairs;
+    }
+
+
+    public static void main(String[] args) {
+        int[] myArray = {2, 4, 3, 5, 6, -2, 4, 7, 8, 9};
+
+        String result = pairSum(myArray, 7);
+        System.out.println(result);
+
     }
 }
